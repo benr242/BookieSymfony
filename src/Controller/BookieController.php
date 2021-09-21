@@ -7,6 +7,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\EncoderFactory;
+use Symfony\Component\Serializer\Encoder\EncoderInterface;
 
 class BookieController extends AbstractController
 {
@@ -42,9 +44,21 @@ class BookieController extends AbstractController
         $theUser = new User();
         $theUser->setUsername("benr666");
 
-        $em->persist($theUser);
-        $em->flush();
+        //$em->persist($theUser);
+        //$em->flush();
 
         return $this->redirectToRoute('bookieTest');
     }
+
+    /*
+
+    public function addUser($username, $password, EncoderInterface $factory)
+    {
+        $factory = $this->get('security.encoder_factory');
+
+        $user = new User();
+
+        $encoder = $factory->
+    }
+    */
 }

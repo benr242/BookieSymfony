@@ -36,6 +36,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $stash;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -118,5 +123,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getStash(): ?int
+    {
+        return $this->stash;
+    }
+
+    public function setStash(int $stash): self
+    {
+        $this->stash = $stash;
+
+        return $this;
     }
 }
