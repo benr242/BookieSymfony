@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,5 +32,19 @@ class BookieController extends AbstractController
             'controller_name' => 'BookieController',
             'myuser' => $theUser,
         ]);
+    }
+
+    /**
+     * @Route("/bookie/addDummyUser", name="addDummyUser")
+     */
+    public function addDummyUser(EntityManagerInterface $em)
+    {
+        $theUser = new User();
+        $theUser->setUsername("benr666");
+
+        $em->persist($theUser);
+        $em->flush();
+
+        return $this->redirectToRoute('bookieTest');
     }
 }
