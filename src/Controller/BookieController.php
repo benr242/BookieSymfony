@@ -17,4 +17,14 @@ class BookieController extends AbstractController
             'controller_name' => 'BookieController',
         ]);
     }
+
+    /**
+     * @Route("/bookietest", name="bookieTest")
+     */
+    public function bookieTest()
+    {
+        return $this->render('bookie/bookietest.html.twig', [
+            'controller_name' => 'BookieController',
+        ]);
+    }
 }
