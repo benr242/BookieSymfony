@@ -26,11 +26,13 @@ yarn add jquery @popperjs/core --dev
 
 composer require security
 
+//migrate
 ./bin/console make:migration
- ./bin/console doctrine:migrations:migrate
+./bin/console doctrine:migrations:migrate
     >>'describe user' //shows user table in cli
 
 composer require --dev orm-fixtures
+
 //clears database
 symfony console doctrine:fixtures:load
     >>in default fixture, load method, replace type-hint with Doctrine\Persistence\ObjectManager
