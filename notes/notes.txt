@@ -1,35 +1,40 @@
-$ git remote add origin https://github.com/benr242/BookieSymfony.git
+git remote add origin https://github.com/benr242/BookieSymfony.git
 
-$ composer require logger
+composer require logger
 // maybe does nothing
-$ composer require security
+composer require security
 
 
-$ ./bin/console make:user
+./bin/console make:user
 // to add properties
-$ symfony console make:entity user
+symfony console make:entity user
 
 // server is installed by default
-$  composer require symfony/webpack-encore-bundle
+composer require symfony/webpack-encore-bundle
 // START SERVER
  symfony server:start
 
 
-$ symfony console make:controller
+symfony console make:controller
     >>Test (makes TestController)
 
 
 
-$ yarn add bootstrap --dev
+yarn add bootstrap --dev
 // jQuery is only required in versions prior to Bootstrap 5
- yarn add jquery @popperjs/core --dev
+yarn add jquery @popperjs/core --dev
 
-$ composer require security
+composer require security
 
-$ ./bin/console make:migration
-$ ./bin/console doctrine:migrations:migrate
+./bin/console make:migration
+./bin/console doctrine:migrations:migrate
     >>'describe user' //shows user table in cli
 
-$ composer require --dev orm-fixtures
+composer require --dev orm-fixtures
 //clears database
-$ symfony console doctrine:fixtures:load
+symfony console doctrine:fixtures:load
+    >>in default fixture, load method, replace type-hint with Doctrine\Persistence\ObjectManager
+
+git tag -a v0.1 -m start point
+git show v0.1
+
