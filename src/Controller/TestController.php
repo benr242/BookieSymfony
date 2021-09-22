@@ -27,7 +27,7 @@ class TestController extends AbstractController
         $theUser = new User();
         $theUser->setUsername("benr242");
 
-        //return $this->redirectToRoute('bookieTest');
-        return $this->render('test/dummy.html.twig');
+        return $this->redirectToRoute('bookie');
+        //return $this->render('test/dummy.html.twig');
     }
 }
