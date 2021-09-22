@@ -31,3 +31,5 @@ $ ./bin/console doctrine:migrations:migrate
     >>'describe user' //shows user table in cli
 
 $ composer require --dev orm-fixtures
+//clears database
+$ symfony console doctrine:fixtures:load
