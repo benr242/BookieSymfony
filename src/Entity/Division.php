@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 namespace App\Entity;
 
@@ -21,6 +21,7 @@ class Division
      * @ORM\Column(type="string", length=12)
      */
     private $name;
+
 
     public function getId(): ?int
     {

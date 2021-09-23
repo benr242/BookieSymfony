@@ -9,11 +9,15 @@ composer require security
 // to add properties
 symfony console make:entity user
 
+//SERVER
 // server is installed by default
 composer require symfony/webpack-encore-bundle
 // START SERVER
- symfony server:start
+symfony server:start
 
+//GIT
+git tag -a v0.1 -m "start point"
+git show v0.1
 
 symfony console make:controller
     >>Test (makes TestController)
@@ -26,17 +30,15 @@ yarn add jquery @popperjs/core --dev
 
 composer require security
 
-//migrate
+//MIGRATION
 ./bin/console make:migration
 ./bin/console doctrine:migrations:migrate
     >>'describe user' //shows user table in cli
 
 composer require --dev orm-fixtures
 
-//clears database
+//FIXTURES
 symfony console doctrine:fixtures:load
     >>in default fixture, load method, replace type-hint with Doctrine\Persistence\ObjectManager
 
-git tag -a v0.1 -m start point
-git show v0.1
 
