@@ -29,6 +29,18 @@ class Team
      */
     private $name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Conference::class, inversedBy="teams")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $conference;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Division::class, inversedBy="teams")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $division;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,6 +66,30 @@ class Team
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getConference(): ?Conference
+    {
+        return $this->conference;
+    }
+
+    public function setConference(?Conference $conference): self
+    {
+        $this->conference = $conference;
+
+        return $this;
+    }
+
+    public function getDivision(): ?Division
+    {
+        return $this->division;
+    }
+
+    public function setDivision(?Division $division): self
+    {
+        $this->division = $division;
 
         return $this;
     }
