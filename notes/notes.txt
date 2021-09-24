@@ -33,6 +33,7 @@ composer require security
 //MIGRATION
 ./bin/console make:migration
 ./bin/console doctrine:migrations:migrate
+    (./bin/console do:mi:migrate)
     >>'describe user' //shows user table in cli
 
 composer require --dev orm-fixtures
