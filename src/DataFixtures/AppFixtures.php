@@ -16,7 +16,8 @@ class AppFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
 
-        $this->loadATeam($manager);
+        //$this->loadATeam($manager);
+        $this->loadFixtureTeams($manager);
     }
 
     private function loadATeam(ObjectManager $manager)
@@ -35,6 +36,15 @@ class AppFixtures extends Fixture
         $myteam->setName("Saints");
         $myteam->setDivision($mydivision);
         $myteam->setConference($myconference);
+
+        $manager->flush();
+    }
+
+    private function loadFixtureTeams(ObjectManager $manager)
+    {
+        $conference = new Conference();
+        $conference->getName("ANC");
+        $manager->persist($conference);
 
         $manager->flush();
     }

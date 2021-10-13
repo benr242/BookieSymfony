@@ -29,6 +29,7 @@ yarn add bootstrap --dev
 yarn add jquery @popperjs/core --dev
 
 composer require security
+composer require --dev symfony/profiler-pack (no new instal)
 
 //MIGRATION
 ./bin/console make:migration
