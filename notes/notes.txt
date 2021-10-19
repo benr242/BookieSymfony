@@ -1,5 +1,8 @@
 git remote add origin https://github.com/benr242/BookieSymfony.git
 
+//if new checkout from GitHub
+composer install
+
 composer require logger
 // maybe does nothing
 composer require security
@@ -43,4 +46,12 @@ composer require --dev orm-fixtures
 symfony console doctrine:fixtures:load
     >>in default fixture, load method, replace type-hint with Doctrine\Persistence\ObjectManager
 
+//BRANCH
+#shows what branch im on
+$git branch
 
+#create and checkout new branch
+$git checkout -b <new-branch>
+$git checkout master #to come back
+#from 'main' branch
+$git merge <branch-name>
