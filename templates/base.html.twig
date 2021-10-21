@@ -1,19 +1,160 @@
-<!DOCTYPE html>
+<!OCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+        <meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScript">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
+        <title>{% block title %}{{ app.request.get('_route') }}!{% endblock %}</title>
+
+        {# before all other stylesheets #}
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+        {#<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">#}
+        {#<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">#}
+
+
+        {#<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">#}
+
+
+        {#<script
+          src="https://code.jquery.com/jquery-3.4.1.js"
+          integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+          crossorigin="anonymous"></script>#}
+
+        <style>
+            {% block menuCss %}
+
+
+            {% endblock %}
+        </style>
+
+        <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+        <script>
+            $(document).ready(function () {
+                $("#albumAddSong").css("visibility", "hidden");
+                //$("#albumAddSong").css("display", "none");
+
+                var $current = "{{ app.request.get('_route') }}";
+
+                $(".active").toggleClass("active");
+
+                $('#'+$current).toggleClass("active");
+                //$("a.active").css("color", "red");
+
+                //alert("active: "+$.active);
+                //alert("current route: <"+$current+">");
+
+                if ($current == 'albumSongs') {
+                    $("#albumAddSong").css("visibility", "visible");
+                }
+                //$(#addartist).addClass("disabledJQ");
+
+                //alert("hellso");
+                //$("#addalbum").css("visibility","hidden");
+                //$("#addartist").addClass("active");
+                //$("a").addClass("yellow");
+                $("li.disabledJQ > a").click(function (evt) { //e alias for event object
+                    var target = evt.target;
+
+                    evt.preventDefault();
+                    //var msq = e.attr("text");
+                    //e.addClass("btn-inactive")
+                    alert("disabledJQ:");
+
+                    //alert($(this).attr("href"));
+                    //alert($(this).attr("class"));
+
+
+                    //alert("disabled: " + $(this).text());
+                    //$("#test > a").css({"color":"red", "background-color":"black"});
+                    $("#test > a").toggleClass("mywarning");
+                    //$(this).css({"color":"red", "background-color":"black"});
+                });
+
+                //$('nav a').attr("href", "#");
+                //$('nav a').removeClass("btn-primary");
+                //$('nav a').addClass("btn-danger");
+
+                $('nav a').each(function () {
+                    $(this).addClass("btn-active");
+                })
+
+                $(".test-btn").removeClass("btn-danger");
+                $(".test-btn").text("<general>");
+                $(".test-btn").attr("href", "{{ path('general') }}");
+
+                //$("#test > a").css({"color":"red", "background-color":"black"});
+
+            })
+        </script>
+        {% block menuJ %}{% endblock %}
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/mystyle.css') }}">
+        {% block stylesheets %}{% endblock %}
+
     </head>
     <body>
-        {% block body %}{% endblock %}
+
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        {% block bootstrap %}{% endblock %}
+
+        <main>
+            {% block body %}
+
+                <pre>
+                    {{ dump() }}
+                </pre>
+
+                <div class="container">
+                <nav class="navbar navbar-expand-sm justify-content-center">
+                    <ul class="navbar-nav">
+                        {#<a class="nav-link" href="{{ path('general') }}">General</a>#}
+                        <a class="navbar-brand" href="{{ path('showAllArtists') }}"><img src="{{ asset('images/spaceDog.png') }}" HEIGHT="40px" width="40px" alt="HOME"></a>
+                        <li  id="showAllArtists" class="nav-item">
+                            <a class="nav-link btn btn-primary active" href="{{ path('showAllArtists') }}">Artists</a>
+                        </li>
+                        <li id="addArtist" class="nav-item">
+                            <a class="nav-link btn btn-primary" href="{% block addartist %}{{ path('addArtist') }}{% endblock %}">Add Artist</a>
+                        </li>
+                        <li id="artistAddAlbum" class="nav-item">
+                            {% if not artistId is defined %}
+                                {% set artistId = 0 %}
+                            {% endif %}
+                            <a class="nav-link btn btn-primary" href="{% block addalbum %}{{ path('artistAddAlbum', {'artistId': artistId}) }}{% endblock %}">Add Album</a>
+                        </li>
+                        <li id="albumAddSong" class="nav-item">
+                            {% if not albumId is defined %}
+                                {% set albumId = 0 %}
+                            {% endif %}
+                            <a class="nav-link btn btn-primary" href="{{ path('albumAddSong', { 'albumId': albumId, 'artistId': artistId }) }}">Add Song</a>
+                            {#<a class="nav-link btn btn-primary" href="{{ path('showAllArtists') }}">Add Song</a>#}
+                        </li>
+                        <li id="general" class="nav-item">
+                            <a class="nav-link btn btn-primary" href="{{ path('general') }}" onclick="return confirm('Are you sure?')">[GENERAL]</a>
+                        </li>
+                        <li id="test" class="nav-item">
+                            <a class="nav-link btn btn-primary test-btn" href="#">test</a>
+                        </li>
+                        <li id="clear" class="nav-item">
+                            <a class="nav-link btn btn-danger" href="{{ path('clearAll') }}" onclick="return confirm('Clear ALL?')">CLEAR</a>
+                        </li>
+                    </ul>
+                </nav>
+                </div>
+            {% endblock %}
+        </main>
+        {% block javascripts %}
+
+            {# must be at the end of <body> tag #}
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        {% endblock %}
     </body>
 </html>

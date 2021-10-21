@@ -25,7 +25,7 @@ class BookieController extends AbstractController
     /**
      * @Route("/bookietest", name="bookieTest")
      */
-    public function bookieTest()
+    public function bookieTest() 
     {
         $theUser = new User();
         $theUser->setUsername("benr242");
