@@ -17,8 +17,11 @@ class BookieController extends AbstractController
      */
     public function index(): Response
     {
+        $dummy = "Fourty Two";
+
         return $this->render('bookie/index.html.twig', [
             'controller_name' => 'BookieController',
+            'title' => $dummy,
         ]);
     }
 
@@ -30,7 +33,7 @@ class BookieController extends AbstractController
         $theUser = new User();
         $theUser->setUsername("benr242");
 
-        return $this->render('bookie/bookietest.html.twig', [
+        return $this->render('bookie/index.html.twig', [
             'controller_name' => 'BookieController',
             'myuser' => $theUser,
         ]);
