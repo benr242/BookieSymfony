@@ -22,7 +22,7 @@ class Team
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $city;
+    private $location;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -46,14 +46,14 @@ class Team
         return $this->id;
     }
 
-    public function getCity(): ?string
+    public function getLocation(): ?string
     {
-        return $this->city;
+        return $this->location;
     }
 
-    public function setCity(string $city): self
+    public function setLocation(string $location): self
     {
-        $this->city = $city;
+        $this->location = $location;
 
         return $this;
     }
