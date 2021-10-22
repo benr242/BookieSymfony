@@ -17,7 +17,7 @@ class AppFixtures extends Fixture
         // $manager->persist($product);
 
         //$this->loadATeam($manager);
-        $this->loadFixtureTeams($manager);
+        $this->loadFixtureTeams($manager); 
     }
 
     private function loadATeam(ObjectManager $manager)

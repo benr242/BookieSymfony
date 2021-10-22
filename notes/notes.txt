@@ -4,6 +4,8 @@ git remote add origin https://github.com/benr242/BookieSymfony.git
 //if new checkout from GitHub
 composer install
 
+$yarn add bootstrap --dev
+
 composer require logger
 // maybe does nothing
 composer require security

@@ -18,10 +18,12 @@ class BookieController extends AbstractController
     public function index(): Response
     {
         $dummy = "Fourty Two";
+        $betNumber = random_int(1, 100000000);
 
         return $this->render('bookie/index.html.twig', [
             'controller_name' => 'BookieController',
             'title' => $dummy,
+            'betNumber' => $betNumber,
         ]);
     }
 

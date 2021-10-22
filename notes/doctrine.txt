@@ -26,3 +26,6 @@ or, drop database, remove all migrations, fix code, make new migration
 
 
 
+doctrine:database:drop --force
+//drop all tables in the database
+doctrine:schema:drop --full-database
