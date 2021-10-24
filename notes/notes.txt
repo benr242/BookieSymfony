@@ -7,6 +7,7 @@ composer install
 composer require logger
 // maybe does nothing
 composer require security
+composer require symfony/webpack-encore-bundle
 
 
 ./bin/console make:user
