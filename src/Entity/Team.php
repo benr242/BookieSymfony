@@ -23,6 +23,11 @@ class Team
     private $location;
 
     /**
+     * @ORM\Column(type="string", length=3)
+     */
+    private $slug;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $name;
@@ -32,11 +37,6 @@ class Team
      * @ORM\JoinColumn(nullable=false)
      */
     private $league;
-
-    /**
-     * @ORM\Column(type="string", length=3)
-     */
-    private $slug;
 
     public function getId(): ?int
     {
@@ -51,6 +51,17 @@ class Team
     public function setLocation(string $location): self
     {
         $this->location = $location;
+
+        return $this;
+    }
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
@@ -75,18 +86,6 @@ class Team
     public function setLeague(?League $league): self
     {
         $this->league = $league;
-
-        return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
 
         return $this;
     }
