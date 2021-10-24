@@ -25,14 +25,14 @@ class League
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=3)
-     */
-    private $init;
-
-    /**
      * @ORM\OneToMany(targetEntity=Team::class, mappedBy="league")
      */
     private $teams;
+
+    /**
+     * @ORM\Column(type="string", length=3)
+     */
+    private $slug;
 
     public function __construct()
     {
@@ -52,18 +52,6 @@ class League
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getInit(): ?string
-    {
-        return $this->init;
-    }
-
-    public function setInit(string $init): self
-    {
-        $this->init = $init;
 
         return $this;
     }
@@ -94,6 +82,18 @@ class League
                 $team->setLeague(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

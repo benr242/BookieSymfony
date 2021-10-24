@@ -28,15 +28,15 @@ class Team
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=3)
-     */
-    private $init;
-
-    /**
      * @ORM\ManyToOne(targetEntity=League::class, inversedBy="teams")
      * @ORM\JoinColumn(nullable=false)
      */
     private $league;
+
+    /**
+     * @ORM\Column(type="string", length=3)
+     */
+    private $slug;
 
     public function getId(): ?int
     {
@@ -67,18 +67,6 @@ class Team
         return $this;
     }
 
-    public function getInit(): ?string
-    {
-        return $this->init;
-    }
-
-    public function setInit(string $init): self
-    {
-        $this->init = $init;
-
-        return $this;
-    }
-
     public function getLeague(): ?League
     {
         return $this->league;
@@ -87,6 +75,18 @@ class Team
     public function setLeague(?League $league): self
     {
         $this->league = $league;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
