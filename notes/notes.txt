@@ -42,6 +42,7 @@ composer require --dev symfony/profiler-pack (no new instal)
 ./bin/console doctrine:migrations:migrate
     (./bin/console do:mi:migrate)
     >>'describe user' //shows user table in cli
+./bin/console doctrine:schema:drop --force --full-database
 
 composer require --dev orm-fixtures
 
