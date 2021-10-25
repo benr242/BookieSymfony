@@ -12,6 +12,7 @@ $yarn add bootstrap --dev
 composer require logger
 // maybe does nothing
 composer require security
+composer require symfony/webpack-encore-bundle
 
 
 ./bin/console make:user
@@ -47,6 +48,7 @@ composer require --dev symfony/profiler-pack (no new instal)
 ./bin/console doctrine:migrations:migrate
     (./bin/console do:mi:migrate)
     >>'describe user' //shows user table in cli
+./bin/console doctrine:schema:drop --force --full-database
 
 composer require --dev orm-fixtures
 

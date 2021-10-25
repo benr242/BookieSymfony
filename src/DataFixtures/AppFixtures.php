@@ -2,8 +2,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Conference;
-use App\Entity\Division;
+use App\Entity\League;
 use App\Entity\Team;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -17,25 +16,23 @@ class AppFixtures extends Fixture
         // $manager->persist($product);
 
         //$this->loadATeam($manager);
-        $this->loadFixtureTeams($manager); 
+        //$this->loadFixtureTeams($manager);
+        $this->loadTeams($manager);
     }
 
-    private function loadATeam(ObjectManager $manager)
+    protected function loadTeams(ObjectManager $manager)
     {
-        $myteam = new Team();
-        $manager->persist($myteam);
+        $league = new League();
+        $league->setSlug("NFL");
+        $league->setName("Nationol Football League");
+        $manager->persist($league);
 
-        $mydivision = new Division();
-        $mydivision->setName("East");
-        $myconference = new Conference();
-        $myconference->setName("National");
-        $manager->persist($myconference);
-        $manager->persist($mydivision);
-
-        $myteam->setCity("New Orleans");
-        $myteam->setName("Saints");
-        $myteam->setDivision($mydivision);
-        $myteam->setConference($myconference);
+        $team = new Team();
+        $team->setSlug("NO");
+        $team->setLocation("New Orleans");
+        $team->setName("Saints");
+        $team->setLeague($league);
+        $manager->persist($team);
 
         $manager->flush();
     }

@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\TeamRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,21 +23,20 @@ class Team
     private $location;
 
     /**
+     * @ORM\Column(type="string", length=3)
+     */
+    private $slug;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Conference::class, inversedBy="teams")
+     * @ORM\ManyToOne(targetEntity=League::class, inversedBy="teams")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $conference;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Division::class, inversedBy="teams")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $division;
+    private $league;
 
     public function getId(): ?int
     {
@@ -57,6 +54,17 @@ class Team
 
         return $this;
     }
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
 
     public function getName(): ?string
     {
@@ -70,26 +78,14 @@ class Team
         return $this;
     }
 
-    public function getConference(): ?Conference
+    public function getLeague(): ?League
     {
-        return $this->conference;
+        return $this->league;
     }
 
-    public function setConference(?Conference $conference): self
+    public function setLeague(?League $league): self
     {
-        $this->conference = $conference;
-
-        return $this;
-    }
-
-    public function getDivision(): ?Division
-    {
-        return $this->division;
-    }
-
-    public function setDivision(?Division $division): self
-    {
-        $this->division = $division;
+        $this->league = $league;
 
         return $this;
     }
