@@ -53,8 +53,7 @@ composer require --dev symfony/profiler-pack (no new instal)
 composer require --dev orm-fixtures
 
 //FIXTURES
-symfony console doctrine:fixtures:load
-    >>in default fixture, load method, replace type-hint with Doctrine\Persistence\ObjectManager
+     >>in default fixture, load method, replace type-hint with Doctrine\Persistence\ObjectManager
 
 //BRANCH
 #shows what branch im on
