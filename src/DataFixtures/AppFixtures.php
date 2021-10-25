@@ -140,112 +140,112 @@ class AppFixtures extends Fixture
         $manager->persist($team);
 
         $team = new Team();
-        $team->setSlug("NO");
+        $team->setSlug("BUF");
         $team->setLocation("Buffalo");
         $team->setName("Bills");
         $team->setLeague($league);
         $manager->persist($team);
 
         $team = new Team();
-        $team->setSlug("TB");
+        $team->setSlug("NE");
         $team->setLocation("New England");
         $team->setName("Patriots");
         $team->setLeague($league);
         $manager->persist($team);
 
         $team = new Team();
-        $team->setSlug("CAR");
+        $team->setSlug("NYJ");
         $team->setLocation("New York");
         $team->setName("Jets");
         $team->setLeague($league);
         $manager->persist($team);
 
         $team = new Team();
-        $team->setSlug("ATL");
+        $team->setSlug("MIA");
         $team->setLocation("Miami");
         $team->setName("Dolphins");
         $team->setLeague($league);
         $manager->persist($team);
 
         $team = new Team();
-        $team->setSlug("NO");
+        $team->setSlug("CIN");
         $team->setLocation("Cincinati");
         $team->setName("Bengals");
         $team->setLeague($league);
         $manager->persist($team);
 
         $team = new Team();
-        $team->setSlug("TB");
+        $team->setSlug("BAL");
         $team->setLocation("Baltimore");
         $team->setName("Ravens");
         $team->setLeague($league);
         $manager->persist($team);
 
         $team = new Team();
-        $team->setSlug("CAR");
+        $team->setSlug("CLE");
         $team->setLocation("Cleveland");
         $team->setName("Browns");
         $team->setLeague($league);
         $manager->persist($team);
 
         $team = new Team();
-        $team->setSlug("ATL");
+        $team->setSlug("PIT");
         $team->setLocation("Pittsburg");
         $team->setName("Steelers");
         $team->setLeague($league);
         $manager->persist($team);
 
         $team = new Team();
-        $team->setSlug("NO");
+        $team->setSlug("TEN");
         $team->setLocation("Tennessee");
         $team->setName("Titans");
         $team->setLeague($league);
         $manager->persist($team);
 
         $team = new Team();
-        $team->setSlug("TB");
+        $team->setSlug("IND");
         $team->setLocation("Indianapolis");
         $team->setName("Colts");
         $team->setLeague($league);
         $manager->persist($team);
 
         $team = new Team();
-        $team->setSlug("CAR");
+        $team->setSlug("JAX");
         $team->setLocation("Jacksonville");
         $team->setName("Jaguars");
         $team->setLeague($league);
         $manager->persist($team);
 
         $team = new Team();
-        $team->setSlug("ATL");
+        $team->setSlug("HST");
         $team->setLocation("Houston");
         $team->setName("Texans");
         $team->setLeague($league);
         $manager->persist($team);
 
         $team = new Team();
-        $team->setSlug("NO");
+        $team->setSlug("LVR");
         $team->setLocation("Las Vegas");
         $team->setName("Raiders");
         $team->setLeague($league);
         $manager->persist($team);
 
         $team = new Team();
-        $team->setSlug("TB");
+        $team->setSlug("LAC");
         $team->setLocation("Las Angeles");
         $team->setName("Chargers");
         $team->setLeague($league);
         $manager->persist($team);
 
         $team = new Team();
-        $team->setSlug("CAR");
+        $team->setSlug("KC");
         $team->setLocation("Kansas City");
         $team->setName("Chiefs");
         $team->setLeague($league);
         $manager->persist($team);
 
         $team = new Team();
-        $team->setSlug("ATL");
+        $team->setSlug("DEN");
         $team->setLocation("Denver");
         $team->setName("Broncos");
         $team->setLeague($league);
