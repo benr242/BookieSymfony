@@ -33,7 +33,22 @@ class AppFixtures extends Fixture
         $team->setName("Saints");
         $team->setLeague($league);
         $manager->persist($team);
-
+        $team = new Team();
+        $team->setSlug("TB");
+        $team->setLocation("Tampa Bay");
+        $team->setName("Buccaneers");
+        $team->setLeague($league);
+        $manager->persist($team);$team = new Team();
+        $team->setSlug("CAR");
+        $team->setLocation("Carolina");
+        $team->setName("Panthers");
+        $team->setLeague($league);
+        $manager->persist($team);$team = new Team();
+        $team->setSlug("ATL");
+        $team->setLocation("Atlanta");
+        $team->setName("Falcons");
+        $team->setLeague($league);
+        $manager->persist($team);
         $manager->flush();
     }
 

@@ -2,6 +2,8 @@
 //downgrade database
 $ ./bin/console doctrine:migrations:migrate first -n
 
+$ symfony console doctrine:fixtures:load
+
 //make new migration
 $ ./bin/console make:migration
 
