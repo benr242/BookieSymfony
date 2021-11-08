@@ -1,0 +1,44 @@
+sudo passwd root
+
+sudo dnf -y upgrade --refresh
+
+sudo dnf install https://dev.mysql.com/get/mysql80-community-release-fc35-1.noarch.rpm
+sudo dnf install mysql-community-server
+
+sudo dnf install php
+#sudo dnf install mysql
+sudo systemctl start mysqld
+sudo systemctl enable mysqld
+
+//mv composer.phar to composer in path
+curl -sS https://getcomposer.org/installer
+
+--- install mysql ---
+sudo dnf install https://dev.mysql.com/get/mysql80-community-release-fc35-1.noarch.rpm
+sudo dnf install mysql-community-server
+---
+
+//install symfony cli
+$ wget https://get.symfony.com/cli/installer -O - | bash 
+hostnamectl set-hostname fedora
+sudo dnf install -y gnome-extensions-app gnome-tweaks
+sudo dnf install -y gnome-shell-extension-appindicator
+sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-35.noarch.rpm
+sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-35.noarch.rpm
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo dnf install -y snapd
+sudo dnf install brasero
+//rip image from dvd to 'image.iso'
+dd if=/dev/sr0 of=/home/benr242/image.iso bs=8192
+
+sudo dnf install snapd
+sudo ln -s /var/lib/snapd/snap /snap
+
+sudo snap install phpstorm --classic
+sudo dnf -y install vlc
+
+sudo dnf -y install httpd php php-cli php-php-gettext php-mbstring php-mcrypt php-mysqlnd php-pear php-curl php-gd php-xml php-bcmath php-zip
+sudo systemctl start httpd
+sudo systemctl enable httpd
+
+sudo dnf -y install phpMyAdmin
