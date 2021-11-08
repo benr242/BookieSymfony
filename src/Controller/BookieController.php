@@ -13,6 +13,14 @@ use Symfony\Component\Serializer\Encoder\EncoderInterface;
 class BookieController extends AbstractController
 {
     /**
+     * @Route ("/", name="home")
+     */
+    public function home()
+    {
+        $this->redirectToRoute("bookie");
+    }
+
+    /**
      * @Route("/bookie", name="bookie")
      */
     public function index(): Response
