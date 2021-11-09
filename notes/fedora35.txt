@@ -16,6 +16,8 @@ curl -sS https://getcomposer.org/installer
 --- install mysql ---
 sudo dnf install https://dev.mysql.com/get/mysql80-community-release-fc35-1.noarch.rpm
 sudo dnf install mysql-community-server
+sudo systemctl start mysqld.service
+sudo systemctl enable mysqld.service
 ---
 
 //install symfony cli
