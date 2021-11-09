@@ -17,7 +17,7 @@ class BookieController extends AbstractController
      */
     public function home()
     {
-        $this->redirectToRoute("bookie");
+        return $this->redirectToRoute("bookie");
     }
 
     /**

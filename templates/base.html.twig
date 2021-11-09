@@ -8,7 +8,7 @@
         <title>{% block title %}{{ app.request.get('_route') }}!{% endblock %}</title>
 
         {# before all other stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+        {# <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}"> #+
         {#<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">#}
         {#<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">#}
 
@@ -28,7 +28,7 @@
             {% endblock %}
         </style>
 
-        <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+        {# <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script> #}
         <script>
             $(document).ready(function () {
                 $("#albumAddSong").css("visibility", "hidden");
@@ -89,7 +89,7 @@
         </script>
         {% block menuJ %}{% endblock %}
 
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/mystyle.css') }}">
+        {# <link rel="stylesheet" type="text/css" href="{{ asset('css/mystyle.css') }}"> #}
         {% block stylesheets %}{% endblock %}
 
     </head>
