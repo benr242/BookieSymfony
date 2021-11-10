@@ -64,7 +64,7 @@ class BookieController extends AbstractController
      */
     public function dummyBet()
     {
-        return $this->render("dummyBet.html.twig");
+        return $this->render("moneyline/dummyBet.html.twig");
     }
 
     /**
