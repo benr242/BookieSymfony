@@ -62,8 +62,14 @@ class BookieController extends AbstractController
     /**
      * @Route ("/dummyBet", name="dummyBet")
      */
-    public function dummyBet()
+    public function dummyBet(int $myLine = -125, int $otherLine = 105)
     {
+        //picked favorite
+        if ($myLine > $otherLine) {
+
+        } else {
+
+        }
         return $this->render("moneyline/dummyBet.html.twig");
     }
 
