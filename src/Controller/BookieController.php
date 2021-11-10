@@ -43,9 +43,6 @@ class BookieController extends AbstractController
         $favLine = 220;
         $dogLine = 180;
 
-        $favLine = 145;
-        $dogLine = 125;
-
         $fImplOdds = $favLine/($favLine + 100) * 100;
         $dImplOdds = 100/($dogLine + 100) * 100;
 
@@ -54,6 +51,11 @@ class BookieController extends AbstractController
 
         return $this->render('moneyline/index.html.twig', [
             'controller_name' => 'MoneylineController',
+            'title' => 'moneyline',
+            'fImplOdds' => $fImplOdds,
+            'dImplOdds' => $dImplOdds,
+            'fOdds' => $fOdds,
+            'dOdds' => $dOdds,
         ]);
     }
 
