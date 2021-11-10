@@ -36,6 +36,28 @@ class BookieController extends AbstractController
     }
 
     /**
+     * @Route ("/moneyline", name="moneyline")
+     */
+    public function moneyline()
+    {
+        $favLine = 220;
+        $dogLine = 180;
+
+        $favLine = 145;
+        $dogLine = 125;
+
+        $fImplOdds = $favLine/($favLine + 100) * 100;
+        $dImplOdds = 100/($dogLine + 100) * 100;
+
+        $fOdds = $fImplOdds / ($fImplOdds + $dImplOdds);
+        $dOdds = $dImplOdds / ($dImplOdds + $fImplOdds);
+
+        return $this->render('moneyline/index.html.twig', [
+            'controller_name' => 'MoneylineController',
+        ]);
+    }
+
+    /**
      * @Route("/bookietest", name="bookieTest")
      */
     public function bookieTest()
