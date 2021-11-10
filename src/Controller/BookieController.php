@@ -40,8 +40,8 @@ class BookieController extends AbstractController
      */
     public function moneyline()
     {
-        $favLine = 120;
-        $dogLine = 100;
+        $favLine = 125;
+        $dogLine = 105;
 
         $fImplOdds = $favLine/($favLine + 100) * 100;
         $dImplOdds = 100/($dogLine + 100) * 100;
@@ -57,6 +57,14 @@ class BookieController extends AbstractController
             'fOdds' => $fOdds,
             'dOdds' => $dOdds,
         ]);
+    }
+
+    /**
+     * @Route ("/dummyBet", name="dummyBet")
+     */
+    public function dummyBet()
+    {
+        return $this->render("dummyBet.html.twig");
     }
 
     /**
