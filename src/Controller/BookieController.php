@@ -40,8 +40,8 @@ class BookieController extends AbstractController
      */
     public function moneyline()
     {
-        $favLine = 220;
-        $dogLine = 180;
+        $favLine = 120;
+        $dogLine = 100;
 
         $fImplOdds = $favLine/($favLine + 100) * 100;
         $dImplOdds = 100/($dogLine + 100) * 100;
