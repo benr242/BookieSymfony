@@ -53,7 +53,7 @@ class AppFixtures extends Fixture
         $user->setPassword("dummy");
         $user->setStash(10000);
         $user->setFirstName("Raj");
-        $user->setLastName("Zacharia");
+        $user->setLastName("Zacharia");ooooooooooooooooooooooooooooooooooooooooooooooooooooo
         $user->setEmail("dummy@gmail.com");
         $manager->persist($user);
 
