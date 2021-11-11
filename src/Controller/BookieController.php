@@ -34,7 +34,7 @@ class BookieController extends AbstractController
         return $this->render('bookie/index.html.twig', [
             'controller_name' => 'BookieController',
             'title' => $dummy,
-            'username' => $user->getUserIdentifier(),
+            'user' => $user,
             'betNumber' => $betNumber,
         ]);
     }
