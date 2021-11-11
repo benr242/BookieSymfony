@@ -19,12 +19,13 @@ class AppFixtures extends Fixture
 
         //$this->loadATeam($manager);
         //$this->loadFixtureTeams($manager);
+
+        $this->loadUsers($manager);
         $this->loadTeams($manager);
     }
 
-    protected function loadTeams(ObjectManager $manager)
+    protected function loadUsers(ObjectManager $manager)
     {
-        $user = new User();
         $roles[] = 'ROLE_USER';
 
         $user = new User();
@@ -53,7 +54,7 @@ class AppFixtures extends Fixture
         $user->setPassword("dummy");
         $user->setStash(10000);
         $user->setFirstName("Raj");
-        $user->setLastName("Zacharia");ooooooooooooooooooooooooooooooooooooooooooooooooooooo
+        $user->setLastName("Zacharia");
         $user->setEmail("dummy@gmail.com");
         $manager->persist($user);
 
@@ -77,6 +78,10 @@ class AppFixtures extends Fixture
         $user->setEmail("dummy@gmail.com");
         $manager->persist($user);
 
+        $manager->flush();
+    }
+    protected function loadTeams(ObjectManager $manager)
+    {
         $league = new League();
         $league->setSlug("NFL");
         $league->setName("Nationol Football League");
