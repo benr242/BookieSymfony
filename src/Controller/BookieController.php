@@ -28,9 +28,13 @@ class BookieController extends AbstractController
         $dummy = "Fourty Two";
         $betNumber = random_int(1, 100000000);
 
+        $user = new User();
+        $user->setUsername("benr242");
+
         return $this->render('bookie/index.html.twig', [
             'controller_name' => 'BookieController',
             'title' => $dummy,
+            'username' => $user->getUserIdentifier(),
             'betNumber' => $betNumber,
         ]);
     }
