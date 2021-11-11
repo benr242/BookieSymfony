@@ -4,8 +4,10 @@ namespace App\DataFixtures;
 
 use App\Entity\League;
 use App\Entity\Team;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\Security\Core\Role\RoleHierarchy;
 
 class AppFixtures extends Fixture
 {
@@ -22,6 +24,59 @@ class AppFixtures extends Fixture
 
     protected function loadTeams(ObjectManager $manager)
     {
+        $user = new User();
+        $roles[] = 'ROLE_USER';
+
+        $user = new User();
+        $user->setUsername("benr242");
+        $user->setRoles($roles);
+        $user->setPassword("dummy");
+        $user->setStash(10000);
+        $user->setFirstName("Ben");
+        $user->setLastName("Rose");
+        $user->setEmail("dummy@gmail.com");
+        $manager->persist($user);
+
+        $user = new User();
+        $user->setUsername("jp");
+        $user->setRoles($roles);
+        $user->setPassword("dummy");
+        $user->setStash(10000);
+        $user->setFirstName("John");
+        $user->setLastName("Posey");
+        $user->setEmail("dummy@gmail.com");
+        $manager->persist($user);
+
+        $user = new User();
+        $user->setUsername("rz");
+        $user->setRoles($roles);
+        $user->setPassword("dummy");
+        $user->setStash(10000);
+        $user->setFirstName("Raj");
+        $user->setLastName("Zacharia");
+        $user->setEmail("dummy@gmail.com");
+        $manager->persist($user);
+
+        $user = new User();
+        $user->setUsername("nc");
+        $user->setRoles($roles);
+        $user->setPassword("dummy");
+        $user->setStash(10000);
+        $user->setFirstName("Nate");
+        $user->setLastName("Connelly");
+        $user->setEmail("dummy@gmail.com");
+        $manager->persist($user);
+
+        $user = new User();
+        $user->setUsername("nl");
+        $user->setRoles($roles);
+        $user->setPassword("dummy");
+        $user->setStash(10000);
+        $user->setFirstName("Nick");
+        $user->setLastName("Lermitte");
+        $user->setEmail("dummy@gmail.com");
+        $manager->persist($user);
+
         $league = new League();
         $league->setSlug("NFL");
         $league->setName("Nationol Football League");
