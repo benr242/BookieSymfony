@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -42,10 +43,12 @@ class BookieController extends AbstractController
     /**
      * @Route ("/moneyline", name="moneyline")
      */
-    public function moneyline()
+    public function moneyline(LoggerInterface $logger)
     {
-        $favLine = 125;
-        $dogLine = 105;
+        $logger->info('just called moneyline');
+
+        $favLine = 150;
+        $dogLine = 130;
 
         $fImplOdds = $favLine/($favLine + 100) * 100;
         $dImplOdds = 100/($dogLine + 100) * 100;
