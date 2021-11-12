@@ -55,7 +55,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $email;
-
+/*
+    function __construct()
+    {
+        $this->roles = 'ROLE_PROGRAMMER';
+    }
+*/
     public function getId(): ?int
     {
         return $this->id;
@@ -101,6 +106,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function addRole($role): self
+    {
+        $this->roles[] = $role;
 
         return $this;
     }

@@ -25,6 +25,7 @@ class AppFixtures extends Fixture
         $user = new User();
         $user->setUsername("br");
         $user->setRoles($myRoles);
+        $user->addRole('ROLE_HERO');
         $user->setPassword("dummy");
         $user->setStash(10000);
         $user->setFirstName("Ben");
