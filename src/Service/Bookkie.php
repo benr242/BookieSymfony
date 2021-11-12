@@ -4,7 +4,7 @@ namespace App\Service;
 
 class Bookkie
 {
-    public function moneyLine($favLine, $dogLine)
+    public function setOdds()
     {
         $favLine = 150;
         $dogLine = 130;
