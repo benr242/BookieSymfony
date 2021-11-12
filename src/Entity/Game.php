@@ -29,6 +29,21 @@ class Game
      */
     private $underdog;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $favLine;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $dogLine;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $spread;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,6 +69,42 @@ class Game
     public function setUnderdog(Team $underdog): self
     {
         $this->underdog = $underdog;
+
+        return $this;
+    }
+
+    public function getFavLine(): ?int
+    {
+        return $this->favLine;
+    }
+
+    public function setFavLine(?int $favLine): self
+    {
+        $this->favLine = $favLine;
+
+        return $this;
+    }
+
+    public function getDogLine(): ?int
+    {
+        return $this->dogLine;
+    }
+
+    public function setDogLine(?int $dogLine): self
+    {
+        $this->dogLine = $dogLine;
+
+        return $this;
+    }
+
+    public function getSpread(): ?int
+    {
+        return $this->spread;
+    }
+
+    public function setSpread(?int $spread): self
+    {
+        $this->spread = $spread;
 
         return $this;
     }
