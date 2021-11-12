@@ -11,15 +11,8 @@ use Symfony\Component\Security\Core\Role\RoleHierarchy;
 
 class AppFixtures extends Fixture
 {
-    //public function load(ObjectManager $manager)
     public function load(ObjectManager  $manager)
     {
-        /// $product = new Product();
-        // $manager->persist($product);
-
-        //$this->loadATeam($manager);
-        //$this->loadFixtureTeams($manager);
-
         $this->loadUsers($manager);
         $this->loadTeams($manager);
     }
@@ -27,10 +20,12 @@ class AppFixtures extends Fixture
     protected function loadUsers(ObjectManager $manager)
     {
         $roles[] = 'ROLE_USER';
+        $myRoles[] = 'ROLE_USER';
+        $myRoles[] = 'ROLE_ADMIN';
 
         $user = new User();
-        $user->setUsername("benr242");
-        $user->setRoles($roles);
+        $user->setUsername("br");
+        $user->setRoles($myRoles);
         $user->setPassword("dummy");
         $user->setStash(10000);
         $user->setFirstName("Ben");
