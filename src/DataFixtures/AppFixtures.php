@@ -20,8 +20,7 @@ class AppFixtures extends Fixture
     protected function loadUsers(ObjectManager $manager)
     {
         $roles[] = 'ROLE_USER';
-        $myRoles[] = 'ROLE_USER';
-        $myRoles[] = 'ROLE_ADMIN';
+        $myRoles = ['ROLE_USER', 'ROLE_ADMIN'];
 
         $user = new User();
         $user->setUsername("br");
