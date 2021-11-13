@@ -18,13 +18,13 @@ class Bookkie
 
     public function americanPayout(int $odds, int $bet ): int
     {
-        if (odds < 0)
+        if ($odds < 0)
         {
             $payout = 100/$odds*$bet + $bet;
         } else {
-            $payout = odds/100*$bet + $bet;
+            $payout = $odds/100*$bet + $bet;
         }
-        
+
         return $payout;
     }
 }

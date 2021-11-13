@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Service\Bookkie;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -43,7 +44,7 @@ class BookieController extends AbstractController
     /**
      * @Route ("/moneyline", name="moneyline")
      */
-    public function moneyline(LoggerInterface $logger)
+    public function moneyline(LoggerInterface $logger, Bookkie $bookkie)
     {
         $logger->info('just called moneyline');
 
@@ -56,6 +57,8 @@ class BookieController extends AbstractController
         $fOdds = $fImplOdds / ($fImplOdds + $dImplOdds);
         $dOdds = $dImplOdds / ($dImplOdds + $fImplOdds);
 
+        $payout = $bookkie->americanPayout(-130, 5000);
+
         return $this->render('moneyline/index.html.twig', [
             'controller_name' => 'MoneylineController',
             'title' => 'moneyline',
@@ -63,6 +66,7 @@ class BookieController extends AbstractController
             'dImplOdds' => $dImplOdds,
             'fOdds' => $fOdds,
             'dOdds' => $dOdds,
+            'payout' => $payout,
         ]);
     }
 
