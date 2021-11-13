@@ -16,10 +16,11 @@ class Bookkie
         $dOdds = $dImplOdds / ($dImplOdds + $fImplOdds);
     }
 
-    public function americanPayout(int $aOdds, int $bet ): int
+    public function americanPayout(int $aOdds, int $bet ): float
     {
         if ($aOdds < 0)
         {
+            $aOdds = $aOdds*-1;
             $impOdds = $aOdds / ($aOdds + 100) * 100;
         } else {
             $impOdds = 100 / ($aOdds + 100) * 100;
