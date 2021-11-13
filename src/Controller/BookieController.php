@@ -57,7 +57,7 @@ class BookieController extends AbstractController
         $fOdds = $fImplOdds / ($fImplOdds + $dImplOdds);
         $dOdds = $dImplOdds / ($dImplOdds + $fImplOdds);
 
-        $payout = $bookkie->aOddsToImplProb(800, 5000);
+        $payout = $bookkie->aOddsToImplProb(-150, 5000);
 
         return $this->render('moneyline/index.html.twig', [
             'controller_name' => 'MoneylineController',
