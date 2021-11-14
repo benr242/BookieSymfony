@@ -9,11 +9,11 @@ class Bookkie
         $favLine = 150;
         $dogLine = 130;
 
-        $fImplOdds = $favLine/($favLine + 100) * 100;
-        $dImplOdds = 100/($dogLine + 100) * 100;
+        $fImplProb = $favLine/($favLine + 100) * 100;
+        $dImplProb = 100/($dogLine + 100) * 100;
 
-        $fOdds = $fImplOdds / ($fImplOdds + $dImplOdds);
-        $dOdds = $dImplOdds / ($dImplOdds + $fImplOdds);
+        $fOdds = $fImplProb / ($fImplProb + $dImplProb);
+        $dOdds = $dImplProb / ($dImplProb + $fImplProb);
     }
 
     public function aOddsToImplProb(int $aOdds, int $bet ): float

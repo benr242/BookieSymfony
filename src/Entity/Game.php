@@ -44,6 +44,11 @@ class Game
      */
     private $spread;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $time;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +110,18 @@ class Game
     public function setSpread(?int $spread): self
     {
         $this->spread = $spread;
+
+        return $this;
+    }
+
+    public function getTime(): ?\DateTimeInterface
+    {
+        return $this->time;
+    }
+
+    public function setTime(\DateTimeInterface $time): self
+    {
+        $this->time = $time;
 
         return $this;
     }
